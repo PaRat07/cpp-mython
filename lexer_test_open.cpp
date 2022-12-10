@@ -1,5 +1,3 @@
-// Этот файл писал не я
-
 #include "lexer.h"
 #include "test_runner_p.h"
 
@@ -319,20 +317,20 @@ print str(p)
             }
         }
         void TestCommentsAreIgnored() {
-//            {
-//                istringstream is(R"(# comment
-//)"s);
-//                Lexer lexer(is);
-//
-//                ASSERT_EQUAL(lexer.CurrentToken(), Token(token_type::Eof{}));
-//            }
-//            {
-//                istringstream is(R"(# comment
-//
-//)"s);
-//                Lexer lexer(is);
-//                ASSERT_EQUAL(lexer.CurrentToken(), Token(token_type::Eof{}));
-//            }
+            {
+                istringstream is(R"(# comment
+)"s);
+                Lexer lexer(is);
+
+                ASSERT_EQUAL(lexer.CurrentToken(), Token(token_type::Eof{}));
+            }
+            {
+                istringstream is(R"(# comment
+
+)"s);
+                Lexer lexer(is);
+                ASSERT_EQUAL(lexer.CurrentToken(), Token(token_type::Eof{}));
+            }
             {
                 istringstream is(R"(# comment
 x #another comment

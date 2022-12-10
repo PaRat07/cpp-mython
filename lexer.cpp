@@ -78,7 +78,7 @@ namespace parse {
     }
 
     Lexer::Lexer(std::istream& input)
-        : in_(input)
+            : in_(input)
     {
         do {
             NextToken();
@@ -111,8 +111,7 @@ namespace parse {
                 }
             }
             else {
-                current_token_ = token_type::Eof{};
-                return token_type::Newline{};
+                current_token_ = token_type::Newline{};
             }
         }
         else if (current_indents_ > indents_in_prev_line) {
@@ -296,52 +295,6 @@ namespace parse {
         }
         in_.get();
         return token_type::String{ans};
-    }
-
-    Token Lexer::ReadIdOrKeyWord() {
-        std::string command;
-        for (char next_sym = in_.peek(); (in_.peek() != -1) && ((next_sym >= 'a' && next_sym <= 'z') || (next_sym >= 'A' && next_sym <= 'Z') || next_sym == '_' || (next_sym >= '0' && next_sym <= '9')); next_sym = in_.peek()) {
-            command.push_back(in_.get());
-        }
-        if (command == "class") {
-            return {parse::token_type::Class{}};
-        }
-        else if (command == "return") {
-            return {parse::token_type::Return{}};
-        }
-        else if (command == "if") {
-            return {parse::token_type::If{}};
-        }
-        else if (command == "else") {
-            return {parse::token_type::Else{}};
-        }
-        else if (command == "def") {
-            return {parse::token_type::Def{}};
-        }
-        else if (command == "print") {
-            return {parse::token_type::Print{}};
-        }
-        else if (command == "or") {
-            return {parse::token_type::Or{}};
-        }
-        else if (command == "None") {
-            return {parse::token_type::None{}};
-        }
-        else if (command == "and") {
-            return {parse::token_type::And{}};
-        }
-        else if (command == "not") {
-            return {parse::token_type::Not{}};
-        }
-        else if (command == "True") {
-            return {parse::token_type::True{}};
-        }
-        else if (command == "False") {
-            return {parse::token_type::False{}};
-        }
-        else {
-            return {token_type::Id{command}};
-        }
     }
 
 }  // namespace parse

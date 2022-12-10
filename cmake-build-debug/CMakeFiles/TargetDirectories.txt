@@ -1,3 +1,3 @@
-/home/parat07/Documents/cpp-mython-interpreter/cmake-build-debug/CMakeFiles/cpp_mython_interpreter.dir
-/home/parat07/Documents/cpp-mython-interpreter/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/parat07/Documents/cpp-mython-interpreter/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/Pasha/yandex/cpp-mython-interpreter/cmake-build-debug/CMakeFiles/cpp_mython_interpreter.dir
+D:/Pasha/yandex/cpp-mython-interpreter/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Pasha/yandex/cpp-mython-interpreter/cmake-build-debug/CMakeFiles/rebuild_cache.dir

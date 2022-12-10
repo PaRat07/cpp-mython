@@ -40,7 +40,8 @@ namespace runtime {
         // object копируется или перемещается в кучу
         template <typename T>
         [[nodiscard]] static ObjectHolder Own(T&& object) {
-            return ObjectHolder(std::make_shared<T>(std::forward<T>(object)));
+            return
+            ObjectHolder(std::make_shared<T>(std::forward<T>(object)));
         }
 
         // Создаёт ObjectHolder, не владеющий объектом (аналог слабой ссылки)

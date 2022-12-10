@@ -56,10 +56,10 @@ namespace runtime {
 
     void ClassInstance::Print(std::ostream& os, Context& context) {
         if (HasMethod("__str__"s, 0)) {
-            cls_ptr_->GetMethod("__str__")->body->Execute(closure_, context).Get()->Print(os, context);
+            Call("__str__", {}, context)->Print(os, context);
         }
         else {
-            os << cls_ptr_;
+            os << this;
         }
     }
 
@@ -82,7 +82,7 @@ namespace runtime {
     }
 
     ClassInstance::ClassInstance(const Class& cls)
-        : cls_ptr_(&cls)
+            : cls_ptr_(&cls)
     {
     }
 
@@ -104,8 +104,8 @@ namespace runtime {
     }
 
     Class::Class(std::string name, std::vector<Method> methods, const Class* parent)
-        : name_(name)
-        , parent_(parent)
+            : name_(name)
+            , parent_(parent)
     {
         for (Method &method : methods) {
             methods_[method.name][method.formal_params.size()] = std::move(method);
